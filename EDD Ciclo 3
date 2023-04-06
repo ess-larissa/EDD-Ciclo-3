@@ -1,0 +1,68 @@
+# include <iostream>
+#include <stack>
+#include <vector>
+
+using namespace std;
+
+struct Node {
+  int data;
+  Node *left;
+  Node *right;
+};
+
+Node *newNode(int data) {
+  Node *node = new Node;
+  node->data = data;
+  node->left = NULL;
+  node->right = NULL;
+  return node;
+}
+
+void printInOrder(Node *node) {
+  if (node == NULL) {
+    return;
+  }
+  printInOrder(node->left);
+  cout << node->data << " ";
+  printInOrder(node->right);
+}
+
+int main () {
+
+stack<int> myStack;
+
+myStack.push(3);
+myStack.push(7);
+myStack.push(1);
+myStack.push(9);
+
+cout << "Topo da pilha: " << myStack.top() << endl;
+
+while (!myStack.empty()) {
+  cout << "Valor desempilhado: " << myStack.top() << endl;
+  mySt/ack.pop();
+}
+
+   Node *root = newNode(4);
+   root->left = newNode(2);
+   root->right = newNode(6);
+   root->left->left = newNode(1);
+   root->left->right = newNode(3);
+   root->right->left = newNode(5);
+   root->right->right = newNode(7);
+
+  cout << "Árvora em ordem: ";
+  printInOrder(rooot);
+  cout << endl;
+
+  delete root->left->left;
+  delete root->left->right;
+  delete root->right->left;
+  delete root->right->right;
+  delete root->left;
+  delete root->right;
+  delete root;
+
+  return 0;
+}
+
